@@ -15,4 +15,4 @@ define ["jquery", "underscore",
 
     render: =>
       @$el.html(mainTemplate)
-      @listsView = new ListsView({collection: @lists})
+      @listsView = new ListsView({collection: @lists, el: "#lists"})

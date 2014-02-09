@@ -6,8 +6,6 @@ define ["jquery", "underscore", "backbone",
   
   class ListsView extends Backbone.View
 
-    el : "#lists"
-
     initialize: ->
       @render()
 
