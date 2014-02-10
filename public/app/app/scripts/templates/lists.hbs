@@ -1,7 +1,7 @@
 <h2>Lists</h2>
 <hr/>
-<ul>
+<ul class="lists">
   {{#each lists}}
-    <li>{{name}}</li>
+    <li><a href="#/lists/{{id}}" class="list" data-id="{{id}}">{{name}}</a></li>
   {{/each}}
 </ul>

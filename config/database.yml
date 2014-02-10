@@ -3,16 +3,16 @@ development:
   encoding: unicode
   database: todo_app_dev
   pool: 5
-  username: postgresdev
-  password: postgresdev
+  username: postgres
+  password: postgres
 
 test:
   adapter: postgresql
   encoding: unicode
   database: todo_app_test
   pool: 5
-  username: postgresdev
-  password: postgresdev
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql

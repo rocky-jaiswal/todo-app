@@ -5,7 +5,7 @@ TodoApp::Application.routes.draw do
     namespace :v1 do
       get "/greet" => "pages#greet", :as => 'greet'
       resources :lists do
-        resources :items
+        resources :todos
       end
     end
   end
