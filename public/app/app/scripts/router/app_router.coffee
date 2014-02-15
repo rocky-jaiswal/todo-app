@@ -4,9 +4,13 @@ define ["jquery", "underscore", "backbone", "../init"], ($, _, Backbone, Init) -
   class AppRouter extends Backbone.Router
 
     routes:
-      "": "root"
+      ""              : "root"
+      "lists/:list_id": "showList"
 
     root: ->
       Init.init()
+
+    showList: (id) ->
+      Init.init({listId: id})
 
       

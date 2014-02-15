@@ -4,7 +4,7 @@ define ["jquery", "underscore", "backbone", "../models/todo"],
   
   class Todos extends Backbone.Collection
 
-    model: Todos
+    model: Todo
 
     initialize: ->
       

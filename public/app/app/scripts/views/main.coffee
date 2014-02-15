@@ -10,9 +10,9 @@ define ["jquery", "underscore",
 
     initialize: ->
       @lists = new Lists
-      @lists.fetch()
-      @lists.on("sync", @render)
+      @lists.fetch({reset: true})
+      @lists.on("reset", @render)
 
     render: =>
       @$el.html(mainTemplate)
-      @listsView = new ListsView({collection: @lists, el: "#lists"})
+      @listsView = new ListsView({collection: @lists, el: "#lists", options: @options.options})
