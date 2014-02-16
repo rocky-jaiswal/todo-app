@@ -1,0 +1,15 @@
+<h2>To Dos</h2>
+<hr/>
+
+<form action="/api/v1/lists/{{list_id}}/todos" method="post" class="form-inline" id="todo-form" role="form">
+  <div class="form-group">
+    <input type="text" class="form-control" name="title" placeholder="Enter todo">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Todo</button>
+</form>
+
+<ul class="todos">
+  {{#each todos}}
+    <li>{{title}}</li>
+  {{/each}}
+</ul>

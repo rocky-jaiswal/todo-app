@@ -20,3 +20,17 @@ body {
   }
 }
 
+.todos {
+  @extend .lists;
+  li {
+    background: #47a447;
+  }
+}
+
+#todo-form {
+  .form-group {
+    width: 89%;
+  }
+  margin-bottom: 15px;
+}
+

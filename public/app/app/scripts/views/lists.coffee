@@ -1,13 +1,13 @@
 define ["jquery", "underscore", "backbone", 
-"handlebars", "hbs!../templates/lists"], 
-($, _, Backbone, Handlebars, listsTemplate) ->
+"handlebars", "hbs!../templates/lists",
+"./todos"], 
+($, _, Backbone, Handlebars, listsTemplate, TodosView) ->
   
   'use strict'
   
   class ListsView extends Backbone.View
 
-    #events:
-      #"click a.list": "viewList"
+    el: "#lists"
 
     initialize: ->
       @render()
@@ -17,5 +17,9 @@ define ["jquery", "underscore", "backbone",
       @fetch(@options.options.listId) if @options.options?.listId
 
     fetch: (id) ->
-      list = @collection.get(id)
-      list.todos.fetch({reset: false})
+      @list = @collection.get(id)
+      @list.todos.on("sync", @showTodos)
+      @list.todos.fetch()
+
+    showTodos: =>
+      todosView = new TodosView({collection: @list.todos, list_id: @list.get('id')})
