@@ -208,7 +208,6 @@ module.exports = function (grunt) {
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
                         'jquery': '../../app/bower_components/jquery/jquery',
-                        'jquery_form': '../../app/bower_components/jquery-form/jquery.form',
                         'underscore': '../../app/bower_components/underscore/underscore',
                         'backbone': '../../app/bower_components/backbone/backbone',
                         'text': '../../app/bower_components/requirejs-text/text',

@@ -15,10 +15,10 @@
 /log/*.log
 /tmp
 
-public/app/node_modules
-public/app/dist
-public/app/test/temp
-public/app/.sass-cache
-public/app/app/bower_components
-public/app/.tmp
-public/app/test/bower_components/
+public/backbone/node_modules
+public/backbone/dist
+public/backbone/test/temp
+public/backbone/.sass-cache
+public/backbone/app/bower_components
+public/backbone/.tmp
+public/backbone/test/bower_components/
