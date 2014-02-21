@@ -7,8 +7,8 @@ module Api
       end
 
       def create
-        Todo.create({title: params["title"], list_id: params["list_id"]})
-        render :json => {success: true}.to_json
+        todo = Todo.create({title: params["title"], list_id: params["list_id"]})
+        render :json => todo.to_json
       end
     
     end

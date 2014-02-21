@@ -8,9 +8,9 @@ define ["jquery", "underscore", "backbone", "../init"], ($, _, Backbone, Init) -
       "lists/:list_id": "showList"
 
     root: ->
-      Init.init()
+      Init.init({app: @})
 
     showList: (id) ->
-      Init.init({listId: id})
+      Init.init({listId: id, app: @})
 
       

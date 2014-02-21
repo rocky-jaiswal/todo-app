@@ -1,5 +1,13 @@
 <h2>Lists</h2>
 <hr/>
+
+<form action="/api/v1/lists/" method="post" class="form-inline" id="list-form" role="form">
+  <div class="form-group">
+    <input type="text" class="form-control" name="name" placeholder="Enter List Name">
+  </div>
+  <button type="submit" class="btn btn-primary">Add List</button>
+</form>
+
 <ul class="lists">
   {{#each lists}}
     <li><a href="#/lists/{{id}}" class="list" data-id="{{id}}">{{name}}</a></li>

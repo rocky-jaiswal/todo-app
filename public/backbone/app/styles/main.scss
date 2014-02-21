@@ -29,7 +29,16 @@ body {
 
 #todo-form {
   .form-group {
-    width: 89%;
+    width: 88.5%;
+    margin-right: 5px;
+  }
+  margin-bottom: 15px;
+}
+
+#list-form {
+  .form-group {
+    width: 67%;
+    margin-right: 5px;
   }
   margin-bottom: 15px;
 }

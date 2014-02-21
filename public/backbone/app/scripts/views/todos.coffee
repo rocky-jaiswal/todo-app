@@ -12,14 +12,8 @@ define ["jquery", "underscore", "backbone",
       "submit #todo-form"  :  "addTodo"
 
     initialize: ->
-      @todo = new Todo({}, {collection: @collection})
-      @setupEvents()
-      @render()
-
-    setupEvents: ->
-      @todo.on("invalid", @handleError)
-      @todo.on("sync", @updateAll)
       @collection.on("sync", @render)
+      @render()
 
     render: =>
       @$el.html(todosTemplate({todos: @collection.toJSON(), list_id: @options.list_id}))
@@ -27,9 +21,16 @@ define ["jquery", "underscore", "backbone",
     addTodo: (e) ->
       e.preventDefault()
       $form = $(e.currentTarget)
+      @createTodo($form)
+
+    createTodo: ($form) ->
+      @todo = new Todo({}, {collection: @collection})
+      @todo.on("invalid", @handleError)
+      @todo.on("sync", @updateAll)
       @todo.save({title: $form.serializeArray()[0].value})
 
     updateAll: =>
+      @undelegateEvents()
       @collection.fetch()
 
     handleError: (model, error) =>

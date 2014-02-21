@@ -1,7 +1,7 @@
 define ["jquery", "underscore", "backbone", 
 "handlebars", "hbs!../templates/lists",
-"./todos"], 
-($, _, Backbone, Handlebars, listsTemplate, TodosView) ->
+"./todos", "../models/list"], 
+($, _, Backbone, Handlebars, listsTemplate, TodosView, List) ->
   
   'use strict'
   
@@ -9,17 +9,46 @@ define ["jquery", "underscore", "backbone",
 
     el: "#lists"
 
+    events:
+      "submit #list-form"  :  "addList"
+
     initialize: ->
       @render()
 
-    render: ->
+    render: =>
       @$el.html(listsTemplate({lists: @collection.toJSON()}))
-      @fetch(@options.options.listId) if @options.options?.listId
+      @getTodosForList(@options.options.listId) if @options.options?.listId
 
-    fetch: (id) ->
-      @list = @collection.get(id)
-      @list.todos.on("sync", @showTodos)
-      @list.todos.fetch()
+    getTodosForList: (id) ->
+      @selectedList = @collection.get(id)
+      @selectedList.todos.on("sync", @showTodos)
+      @selectedList.todos.fetch()
 
     showTodos: =>
-      todosView = new TodosView({collection: @list.todos, list_id: @list.get('id')})
+      todosView = new TodosView({collection: @selectedList.todos, list_id: @selectedList.get('id')})
+
+    #methods for adding a new list
+
+    addList: (e) ->
+      e.preventDefault()
+      $form = $(e.currentTarget)
+      @createList($form)
+
+    createList: ($form) ->
+      @list = new List({}, {collection: @collection})
+      @list.on("invalid", @handleError)
+      @list.on("sync", @showList)
+      @list.save({name: $form.serializeArray()[0].value}, {success: @handleSuccess, error: @handleError})
+
+    handleSuccess: =>
+      @list.fetch()
+
+    showList: =>
+      @undelegateEvents()
+      @options.options.app.navigate("/lists/#{@list.id}", {trigger: true})
+
+    handleError: (model, error) =>
+      @showError(error.msg)
+
+    showError: (msg) ->
+      $(".error-messages").html(msg)
