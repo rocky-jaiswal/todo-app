@@ -18,6 +18,8 @@ define ["jquery", "underscore", "backbone",
     render: =>
       @$el.html(todosTemplate({todos: @collection.toJSON(), list_id: @options.list_id}))
 
+    # methods for adding a new todo
+    
     addTodo: (e) ->
       e.preventDefault()
       $form = $(e.currentTarget)
