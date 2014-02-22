@@ -10,6 +10,7 @@ define ["jquery", "underscore", "backbone",
 
     events:
       "submit #todo-form"  :  "addTodo"
+      "click .delete"      :  "deleteTodo"
 
     initialize: ->
       @collection.on("sync", @render)
@@ -40,3 +41,11 @@ define ["jquery", "underscore", "backbone",
 
     showError: (msg) ->
       $(".error-messages").html(msg)
+
+    deleteTodo: (e) ->
+      e.preventDefault()
+      id = $(e.currentTarget).data("id")
+      t = @collection.get(id)
+      t.destroy()
+      @updateAll()
+

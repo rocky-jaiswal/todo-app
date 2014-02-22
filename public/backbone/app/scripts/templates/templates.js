@@ -44,7 +44,7 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<h2>Lists</h2>\n<hr/>\n\n<form action=\"/api/v1/lists/\" method=\"post\" class=\"form-inline\" id=\"list-form\" role=\"form\">\n  <div class=\"form-group\">\n    <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter List Name\">\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\">Add List</button>\n</form>\n\n<ul class=\"lists\">\n  ";
+  buffer += "<h2>Lists</h2>\n<hr/>\n\n<form action=\"/api/v1/lists/\" method=\"post\" class=\"form-inline\" id=\"list-form\" role=\"form\">\n  <div class=\"form-group\">\n    <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter list name\">\n  </div>\n  <button type=\"submit\" class=\"btn btn-success\">Add List</button>\n</form>\n\n<ul class=\"lists\">\n  ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.lists), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n</ul>";
