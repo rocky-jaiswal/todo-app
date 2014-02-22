@@ -1,13 +1,14 @@
 module Api
   module V1
     class TodosController < ApplicationController
+
+      #Check list_id is a param in all and belongs to logged in user
       
       def index
         render :json => Todo.where(:list_id => params["list_id"]).as_json
       end
 
       def destroy
-        puts params.inspect
         Todo.find(params["id"]).destroy
         render :json => {success: true}.as_json
       end

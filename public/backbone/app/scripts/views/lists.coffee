@@ -11,6 +11,7 @@ define ["jquery", "underscore", "backbone",
 
     events:
       "submit #list-form"  :  "addList"
+      "click .delete"      :  "deleteList"
 
     initialize: ->
       @render()
@@ -52,3 +53,10 @@ define ["jquery", "underscore", "backbone",
 
     showError: (msg) ->
       $(".error-messages").html(msg)
+
+    deleteList: (e) ->
+      e.preventDefault()
+      id = $(e.currentTarget).data("id")
+      l = @collection.get(id)
+      l.destroy()
+      #@updateAll()

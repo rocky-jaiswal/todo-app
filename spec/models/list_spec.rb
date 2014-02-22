@@ -12,4 +12,10 @@ describe List do
   it "does not allow a list to be created without a user" do
     expect(List.new(name: "ok").save).to be_false
   end
+
+  it "deletes all todos when a list is deleted" do
+    FactoryGirl.create(:todo1)
+    List.first.destroy
+    expect(Todo.all).to be_blank
+  end
 end
