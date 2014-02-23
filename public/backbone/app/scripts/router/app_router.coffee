@@ -1,11 +1,15 @@
-define ["jquery", "underscore", "backbone", "../init"], ($, _, Backbone, Init) ->
+define ["jquery", "underscore", "backbone", "../init", "../views/login"], ($, _, Backbone, Init, LoginView) ->
   'use strict'
   
   class AppRouter extends Backbone.Router
 
     routes:
-      ""              : "root"
-      "lists/:list_id": "showList"
+      ""				        : "login"
+      "home"            : "root"
+      "lists/:list_id"	: "showList"
+
+    login: ->
+      new LoginView()
 
     root: ->
       Init.init({app: @})

@@ -59,4 +59,4 @@ define ["jquery", "underscore", "backbone",
       id = $(e.currentTarget).data("id")
       l = @collection.get(id)
       l.destroy()
-      #@updateAll()
+      #TODO Do something!!

@@ -1,4 +1,6 @@
-define ["jquery", "backbone", "require", "views/footer", "views/navbar", "views/main"], ($, Backbone, require, FooterView, NavbarView, MainView) ->
+define ["jquery", "backbone", "require",
+"views/footer", "views/navbar", "views/main"],
+($, Backbone, require, FooterView, NavbarView, MainView) ->
   
   'use strict'
 
