@@ -14,6 +14,6 @@ FactoryGirl.define do
     priority "High"
     status "In Progress"
     tags "good"
-    association :list, factory: :list1
+    association :list, factory: :list2
   end
 end
