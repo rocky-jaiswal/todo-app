@@ -9,7 +9,7 @@ define ["jquery", "underscore", "backbone", "../init", "../views/login"], ($, _,
       "lists/:list_id"	: "showList"
 
     login: ->
-      new LoginView()
+      new LoginView({app: @})
 
     root: ->
       Init.init({app: @})

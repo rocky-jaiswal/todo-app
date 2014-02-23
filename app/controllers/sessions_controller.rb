@@ -11,6 +11,7 @@ class SessionsController < Devise::SessionsController
   end
  
   def failure
+    current_user.logout
     render :nothing => true, :status => :unauthorized
   end
 
