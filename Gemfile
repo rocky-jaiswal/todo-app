@@ -4,6 +4,7 @@ gem 'rails', '4.0.2'
 gem 'rails-api'
 gem 'pg'
 gem 'devise'
+gem 'aes', '~> 0.5.0'
 
 group :development do
   gem 'thin'
@@ -18,8 +19,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'database_cleaner', '1.0.1'
-  gem 'email_spec'
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner'
 end
 
 # To use ActiveModel has_secure_password

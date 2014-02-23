@@ -1,12 +1,17 @@
 TodoApp::Application.routes.draw do
-  get "lists/index"
-  devise_for :users
+  
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    post   '/api/v1/login'   => 'sessions#create'
+    delete '/api/v1/logout'  => 'sessions#destroy'
+  end
+  
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      get "/greet" => "pages#greet", :as => 'greet'
       resources :lists do
         resources :todos
       end
     end
   end
+
 end
