@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.find_or_create_by_email({email: "jane@example.com", password: "12345678", password_confirmation: "12345678"})
+user = User.find_or_create_by_email({email: "rocky@example.com", password: "12345678", password_confirmation: "12345678"})
 l1 = List.find_or_create_by_name({name: "l1", user: user})
 l2 = List.find_or_create_by_name({name: "l2", user: user})
 t1 = Todo.find_or_create_by_title({title: "t11", list: l1})
