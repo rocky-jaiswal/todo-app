@@ -13,11 +13,3 @@ test:
   pool: 5
   username: postgres
   password: postgres
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: todo_app_production
-  pool: 5
-  username: 
-  password: 
