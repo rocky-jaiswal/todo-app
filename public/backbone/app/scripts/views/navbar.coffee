@@ -1,4 +1,5 @@
-define ["jquery", "underscore", "backbone", "handlebars", "hbs!../templates/_navbar"], ($, _, Backbone, Handlebars, navbarTemplate) ->
+define ["jquery", "underscore", "backbone", "hbs!../templates/_navbar"],
+($, _, Backbone, navbarTemplate) ->
   'use strict'
   
   class NavbarView extends Backbone.View

@@ -9,7 +9,7 @@ class AuthenticationService
   def get_user_from_encrypted_email(encrypted_email)
     if encrypted_email && !encrypted_email.blank?
       user_email = AES.decrypt(encrypted_email, TodoApp::Application.config.secret_token)
-      User.find_by_email(user_email)
+      User.find_by(email: user_email)
     end
   end
 

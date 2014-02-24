@@ -1,7 +1,6 @@
 define ["jquery", "underscore", 
-"backbone", "handlebars", 
-"hbs!../templates/main", "../collections/lists", "./lists"], 
-($, _, Backbone, Handlebars, mainTemplate, Lists, ListsView) ->
+"backbone", "hbs!../templates/main", "../collections/lists", "./lists"], 
+($, _, Backbone, mainTemplate, Lists, ListsView) ->
   
   'use strict'
   

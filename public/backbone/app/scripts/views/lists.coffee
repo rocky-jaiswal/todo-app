@@ -1,7 +1,6 @@
-define ["jquery", "underscore", "backbone", 
-"handlebars", "hbs!../templates/lists",
+define ["jquery", "underscore", "backbone", "hbs!../templates/lists",
 "./todos", "../models/list"], 
-($, _, Backbone, Handlebars, listsTemplate, TodosView, List) ->
+($, _, Backbone, listsTemplate, TodosView, List) ->
   
   'use strict'
   
@@ -17,7 +16,13 @@ define ["jquery", "underscore", "backbone",
       @render()
 
     render: =>
-      @$el.html(listsTemplate({lists: @collection.toJSON()}))
+      lists = @collection.toJSON()
+      lists = _.map lists, (obj) =>
+        if String(obj.id) is @options.options?.listId
+          _.extend(obj, {class: "selected"}) 
+        else
+          _.extend(obj, {class: "not-selected"}) 
+      @$el.html(listsTemplate({lists: lists}))
       @getTodosForList(@options.options.listId) if @options.options?.listId
 
     getTodosForList: (id) ->
@@ -57,6 +62,5 @@ define ["jquery", "underscore", "backbone",
     deleteList: (e) ->
       e.preventDefault()
       id = $(e.currentTarget).data("id")
-      l = @collection.get(id)
-      l.destroy()
-      #TODO Do something!!
+      @collection.get(id).destroy()
+      @options.options.app.navigate("home", {trigger: true})

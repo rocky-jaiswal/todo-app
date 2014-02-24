@@ -1,6 +1,6 @@
-define ["jquery", "underscore", "backbone", 
-"handlebars", "hbs!../templates/todos", "../models/todo"], 
-($, _, Backbone, Handlebars, todosTemplate, Todo) ->
+define ["jquery", "underscore", "backbone",
+"hbs!../templates/todos", "../models/todo"], 
+($, _, Backbone, todosTemplate, Todo) ->
   
   'use strict'
   

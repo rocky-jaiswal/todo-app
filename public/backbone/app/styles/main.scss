@@ -18,6 +18,10 @@ body {
       color: white;
     }
   }
+  li.selected {
+    @extend li;
+    background-color: darken(#3276b1, 20%);
+  }
 }
 
 .todos {
@@ -54,5 +58,9 @@ body {
       width: 65%;
     }
   }
+}
+
+.gray {
+  color: #aaaaaa;
 }
 

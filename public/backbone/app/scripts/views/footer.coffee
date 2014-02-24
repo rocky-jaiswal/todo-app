@@ -1,6 +1,5 @@
-define ["jquery", "underscore", "backbone", 
-"handlebars", "hbs!../templates/_footer"], 
-($, _, Backbone, Handlebars, footerTemplate) ->
+define ["jquery", "underscore", "backbone", "hbs!../templates/_footer"], 
+($, _, Backbone, footerTemplate) ->
   'use strict'
   
   class FooterView extends Backbone.View

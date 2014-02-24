@@ -6,7 +6,8 @@ define ["jquery", "underscore", "backbone", "../init", "../views/login"], ($, _,
     routes:
       ""				        : "login"
       "home"            : "root"
-      "lists/:list_id"	: "showList"
+      "lists/:list_id"  : "showList"
+      "logout"	        : "logout"
 
     login: ->
       new LoginView({app: @})
@@ -16,5 +17,17 @@ define ["jquery", "underscore", "backbone", "../init", "../views/login"], ($, _,
 
     showList: (id) ->
       Init.init({listId: id, app: @})
+
+    logout: ->
+      email = localStorage.getItem("email")
+      token = localStorage.getItem("token")
+      $.ajax({url: "/api/v1/logout", type: "delete", headers: {email: email, token: token}})
+      @cleanUp()
+
+    cleanUp: ->
+      localStorage.removeItem("email")
+      localStorage.removeItem("token")
+      @navigate("/", {trigger: true})
+      location.reload()
 
       
