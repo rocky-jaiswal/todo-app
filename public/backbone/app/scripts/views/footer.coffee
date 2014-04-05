@@ -1,4 +1,4 @@
-define ["jquery", "underscore", "backbone", "hbs!../templates/_footer"], 
+define ["jquery", "underscore", "backbone", "hbs!../templates/_footer"],
 ($, _, Backbone, footerTemplate) ->
   'use strict'
   
@@ -9,3 +9,4 @@ define ["jquery", "underscore", "backbone", "hbs!../templates/_footer"],
 
     render: ->
       @$el.html(footerTemplate)
+      @$el.show()

@@ -14,8 +14,11 @@ define ["jquery", "backbone", "require",
         "#footer" : FooterView
 
       initialized = {}
+      views = []
 
       for selector, view of mapping
         if $("body").has(selector).length isnt 0
-          view = new view({el: selector, options}) unless initialized[selector]
+          views.push(new view({el: selector, options})) unless initialized[selector]
           initialized[selector] = true
+
+      views

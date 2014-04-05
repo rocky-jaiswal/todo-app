@@ -17,7 +17,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">To Do App</a>\n    </div>\n    <div class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"#\">Home</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"active\"><a href=\"#\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</div>";
+  return "<div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <span class=\"navbar-brand\">To Do App</span>\n    </div>\n    <div class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"#home\">Home</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"active\"><a href=\"#logout\" id=\"logout\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</div>";
   }));
 
 this["JST"]["app/scripts/templates/lists.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -28,7 +28,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <li>\n      <a href=\"#/lists/";
+  buffer += "\n    <li class=\"";
+  if (stack1 = helpers['class']) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0['class']); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\n      <a href=\"#/lists/";
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
@@ -61,7 +65,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <h1>★ ToDo App ★</h1>\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">Please login:</div>\n        <div class=\"panel-body\">\n          <form id=\"login-form\">\n            <div class=\"form-group\">\n              <label for=\"email\">Email:</label>\n              <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Enter email\">\n            </div>\n            <div class=\"form-group\">\n              <label for=\"password\">Password:</label>\n              <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Enter password\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\">Login</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
+  return "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <h1>★ ToDo App ★</h1>\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">Please login:</div>\n        <div class=\"panel-body\">\n          <form id=\"login-form\">\n            <div class=\"form-group\">\n              <label for=\"email\">Email:</label>\n              <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Enter email (rocky@example.com)\">\n            </div>\n            <div class=\"form-group\">\n              <label for=\"password\">Password:</label>\n              <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Enter password (12345678)\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\">Login</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
   });
 
 this["JST"]["app/scripts/templates/main.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -70,7 +74,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"messages\"></div>\n      <div class=\"error-messages\"></div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"row\">\n        <div class=\"col-md-3\">\n          <div id=\"lists\"></div>\n        </div>\n        <div class=\"col-md-9\">\n          <div id=\"todos\">\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
+  return "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"messages\"></div>\n      <div class=\"error-messages\"></div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"row\">\n        <div class=\"col-md-3\">\n          <div id=\"lists\"></div>\n        </div>\n        <div class=\"col-md-9\">\n          <div id=\"todos\">\n            <h2 class=\"gray\">Please select a list</h2>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
   });
 
 this["JST"]["app/scripts/templates/todos.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

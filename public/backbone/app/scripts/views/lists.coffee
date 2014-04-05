@@ -1,9 +1,9 @@
 define ["jquery", "underscore", "backbone", "hbs!../templates/lists",
-"./todos", "../models/list"], 
+"./todos", "../models/list"],
 ($, _, Backbone, listsTemplate, TodosView, List) ->
-  
+
   'use strict'
-  
+
   class ListsView extends Backbone.View
 
     el: "#lists"

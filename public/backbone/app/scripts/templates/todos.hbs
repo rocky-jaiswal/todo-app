@@ -10,6 +10,6 @@
 
 <ul class="todos">
   {{#each todos}}
-    <li>{{title}}<a class="delete pull-right" data-id="{{id}}">✖</a></li>
+    <li>{{title}}<a href="todos/{{id}}/delete" class="delete pull-right" data-id="{{id}}">✖</a></li>
   {{/each}}
 </ul>

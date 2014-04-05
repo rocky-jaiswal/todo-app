@@ -1,19 +1,20 @@
-define ["jquery", "underscore", "backbone", "../init", "../views/login"], ($, _, Backbone, Init, LoginView) ->
+define ["jquery", "underscore", "backbone", "../init", "../views/login", "../views/navbar", "../views/footer"],
+($, _, Backbone, Init, LoginView, NavbarView, FooterView) ->
   'use strict'
   
   class AppRouter extends Backbone.Router
 
     routes:
       ""				        : "login"
-      "home"            : "root"
+      "home"            : "home"
       "lists/:list_id"  : "showList"
       "logout"	        : "logout"
 
     login: ->
       new LoginView({app: @})
 
-    root: ->
-      Init.init({app: @})
+    home: ->
+      @views = Init.init({app: @})
 
     showList: (id) ->
       Init.init({listId: id, app: @})
@@ -27,7 +28,5 @@ define ["jquery", "underscore", "backbone", "../init", "../views/login"], ($, _,
     cleanUp: ->
       localStorage.removeItem("email")
       localStorage.removeItem("token")
+      _.each @views, (view) -> view.$el.hide() if (view instanceof(NavbarView)) or (view instanceof(FooterView))
       @navigate("/", {trigger: true})
-      location.reload()
-
-      

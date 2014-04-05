@@ -9,3 +9,4 @@ define ["jquery", "underscore", "backbone", "hbs!../templates/_navbar"],
 
     render: ->
       @$el.html(navbarTemplate)
+      @$el.show()
