@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 gem 'rails-api'
 gem 'pg'
 gem 'devise'
@@ -22,9 +22,9 @@ group :test do
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner'
 end
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production # for heroku
 
-ruby "2.1.1"
+ruby "2.1.1" #for rvm / heroku
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
